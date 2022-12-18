@@ -28,7 +28,7 @@ func init() {
 	cobra.OnInitialize(initializeConfig)
 	// Add flags
 	rootCmd.Flags().String("targetTime", time.Now().Format("15:04"), "Specify the local time [24h format] to be converted. For example: 19:00")
-	rootCmd.Flags().StringSlice("timezone", []string{}, "Specify the timezone(s) to which targetTime needs to be converted. For example: Asia/Shanghai")
+	rootCmd.PersistentFlags().StringSlice("timezone", []string{}, "Specify the timezone(s) to which targetTime needs to be converted. For example: Asia/Shanghai")
 
 	viper.BindPFlag("targetTime", rootCmd.Flags().Lookup("targetTime"))
 	viper.BindPFlag("timezone", rootCmd.Flags().Lookup("timezone"))
@@ -39,22 +39,9 @@ func initializeConfig() {
 	viper.SetConfigName(gtime.ConfigName)
 	viper.SetConfigType(gtime.ConfigType)
 
-	viper.AutomaticEnv()
-
 	if err := viper.ReadInConfig(); err != nil {
-		//fmt.Println(err)
+		//Do nothing
 	}
-
-	/*
-		cmd.Flags().VisitAll(func(f *pflag.Flag) {
-			configName := f.Name
-
-			if !f.Changed && v.IsSet(configName) {
-				val := v.Get(configName)
-				cmd.Flags().Set(f.Name, fmt.Sprintf("%v", val))
-			}
-		})
-	*/
 }
 
 func Execute() {
