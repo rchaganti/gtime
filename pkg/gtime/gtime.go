@@ -7,12 +7,16 @@ import (
 	"time"
 )
 
+const (
+	ConfigName = "config"
+	ConfigPath = "$HOME/.gtime"
+	ConfigType = "json"
+)
+
 type tInfo struct {
 	Location string
 	Time     string
 }
-
-var result = []tInfo{}
 
 func ConvertTime(t string, tz []string) (res []tInfo) {
 	// Get local time
