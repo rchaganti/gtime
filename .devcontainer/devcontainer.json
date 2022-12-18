@@ -1,0 +1,16 @@
+{
+	"image": "mcr.microsoft.com/vscode/devcontainers/base",
+	"containerEnv": {
+		"TZ": "Asia/Calcutta"
+	},
+	"settings": {},
+	"extensions": [
+		"golang.go"
+	],
+	"features": {
+		"ghcr.io/devcontainers/features/go:1": {
+            		"version": "latest"
+		}
+	},
+	"remoteUser": "vscode"
+}
