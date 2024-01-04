@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/rchaganti/gtime/cmd/gtime"
+	cmd "github.com/rchaganti/gtime/cmd"
 )
 
 func main() {
-	gtime.Execute()
+	cmd.Execute()
 }
